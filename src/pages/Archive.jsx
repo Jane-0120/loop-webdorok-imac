@@ -187,7 +187,8 @@ function ChapterPage({ parts, grouped = false, title, eyebrow, summary, docTitle
       ) : (
         <>
           <nav className="ar-chips" ref={chipsRef} aria-label="섹션 목차">
-            {sections.map((s) => (
+            {/* 모바일: 과정 페이지는 지금 파트의 섹션만 보여줌 */}
+            {sections.filter(s => !grouped || s.part === activePart).map((s) => (
               <button key={s.id} data-id={s.id} className={`chip ${active === s.id ? 'is-dark' : ''}`} aria-current={active === s.id || undefined} onClick={() => goTo(s.id)}>
                 {s.title}{!grouped && <span className="ar-n">{s.slides.length || '—'}</span>}
               </button>

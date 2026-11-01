@@ -12,7 +12,7 @@ export default function Outro() {
   return (
     <section className="closing" id="prototype" data-snap="end">
       <div className="closing-in">
-        <h2>건강을 위한 공공서비스가<br />우리의 일상에 더 오래 함께하도록</h2>
+        <h2>건강을 위한 공공서비스가 <br />우리의 일상에 더 오래 함께하도록</h2>
 
         <TryCards />
 
@@ -20,7 +20,7 @@ export default function Outro() {
           <div className="site-footer-top">
             <div className="site-footer-brand">
               <Wordmark height={56} />
-              <p>측정에서 끝나지 않는 건강의 선순환.<br />국민체력100 서비스 리디자인 프로젝트</p>
+              <p>측정에서 끝나지 않는 건강의 선순환. <br />국민체력100 서비스 리디자인 프로젝트</p>
             </div>
             <nav className="site-footer-nav" aria-label="사이트 메뉴">
               <div>

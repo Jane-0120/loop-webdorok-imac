@@ -50,3 +50,13 @@
 }
 /* 스크롤로 굴리는 중엔 손을 따라 바로 움직이게 */
 .aw-wheel.is-scrolling .aw-list li { transition-duration: .14s, .14s; }
+
+/* 모바일: 목차 글자 작게, 장표는 목차 아래 */
+@media (max-width: 760px) {
+  .aw { padding: 12px; gap: 8px; border-radius: var(--r-md); }
+  .aw-wheel { height: 260px; --aw-radius: 300px; --aw-step: 7deg; }
+  .aw-list button { font-size: 15px; }
+  .aw-list li[data-active] button { transform: translateX(28px); }
+  .aw-pin { width: 10px; height: 10px; margin-top: -5px; }
+  .aw-slide img { max-height: none; }
+}

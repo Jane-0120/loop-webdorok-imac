@@ -26,3 +26,10 @@
 
 /* 섹션 사이 회색 구분선 없음 */
 .landing > :is(.chapter, .archive-entry, .care-flow, .design-system) { border-top: 0; }
+
+/* 모바일: 글자 크기·간격을 한 단계 줄이고, 부제목은 화면 폭대로 자연스럽게 흐르게 (지정 줄바꿈 해제) */
+@media (max-width: 760px) {
+  :root { --sec-kicker-fs: 13px; --sec-title-fs: 24px; --sec-sub-fs: 15px; --sec-gap-title: 8px; --sec-gap-sub: 12px; --sec-head-mb: 28px; }
+  .landing :is(.care-heading, .research-copy, #design-system .chapter-heading) > p:not(.kicker) br { display: none; }
+  .landing .closing h2 { font-size: 24px; }
+}
