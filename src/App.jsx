@@ -4,6 +4,7 @@ import Gnb from './components/Gnb'
 import Landing from './pages/Landing'
 import Archive, { Process } from './pages/Archive'
 import { startLenis } from './lib/scroll'
+import useIdleReset from './lib/useIdleReset'
 
 /**
  * HashRouter: #/archive/:chapter 만 라우트.
@@ -11,6 +12,7 @@ import { startLenis } from './lib/scroll'
  */
 export default function App() {
   useEffect(() => startLenis(), [])
+  useIdleReset()
 
   return (
     <>

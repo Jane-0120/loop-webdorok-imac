@@ -201,3 +201,21 @@
     box-shadow: 0 1px 0 var(--gray-100);
   }
 }
+
+/* ───────── 모바일 (≤760): 상단 글 영역 없이 탭만 고정. 탭·하위 탭은 네비바와 같은 반투명 블러, 선택은 블루 글자 ───────── */
+@media (max-width: 760px) {
+  .ar-process .ar-head { display: none; }
+  .ar-process { padding-top: var(--gnb-h); }
+  .ar-process .ar-parts, .ar-process .ar-chips {
+    background: rgb(250 250 251 / 70%); -webkit-backdrop-filter: blur(24px) saturate(150%); backdrop-filter: blur(24px) saturate(150%); box-shadow: none;
+  }
+  /* 상위 탭: 좌우 여백 안을 3등분해서 꽉 채움 */
+  .ar-process .ar-parts { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; padding: 0 var(--mx); top: var(--gnb-h); }
+  .ar-process .ar-parts button { justify-content: center; padding: 14px 0; border-radius: 0; background: none; font-size: 15px; color: var(--gray-500); }
+  .ar-process .ar-parts button.is-active { background: none; color: var(--violet-500); box-shadow: inset 0 -2px 0 var(--violet-500); }
+  /* 하위 탭: 알약 대신 글자만 */
+  .ar-process .ar-chips { top: calc(var(--gnb-h) + 48px); gap: 20px; padding: 10px var(--mx); box-shadow: inset 0 -1px 0 rgb(10 2 39 / 6%); }
+  .ar-process .ar-chips .chip, .ar-process .ar-chips .chip.is-dark { padding: 0; min-height: 0; border: 0; border-radius: 0; background: none; font-size: 14px; font-weight: var(--w-medium); color: var(--gray-500); }
+  .ar-process .ar-chips .chip.is-dark { color: var(--violet-500); font-weight: var(--w-semibold); }
+  .ar-process .ar-part, .ar-process .ar-sec { scroll-margin-top: calc(var(--gnb-h) + 100px); }
+}

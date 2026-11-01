@@ -35,7 +35,7 @@ export default function ConnectionFlow() {
   return (
     <section className="chapter care-flow" id="service" data-snap><span className="section-anchor" id="ecosystem" />
       <div className="care-layout">
-      <header className="care-heading"><p className="kicker">ONE CONNECTED LOOP</p><h2>센터의 측정이, <br />집에서의 실천으로</h2><p>앱과 처방사 대시보드, AIoT 기기, 측정 스테이션이 <br />측정 이후 12주를 함께 이어가요</p></header>
+      <header className="care-heading"><p className="kicker">ONE CONNECTED LOOP</p><h2>센터의 측정이, <br />집에서의 실천으로</h2><p>앱과 처방사 대시보드, AIoT 기기, 측정 스테이션이 <br className="br-keep" />측정 이후 12주를 함께 이어가요</p></header>
       <div
         className="loop-cards" ref={stage} style={{ '--loop-auto': `${AUTO_MS}ms` }} aria-roledescription="carousel" aria-label="하나로 이어지는 lOOP 서비스"
         onMouseEnter={() => setPaused(true)} onMouseLeave={() => setPaused(false)}

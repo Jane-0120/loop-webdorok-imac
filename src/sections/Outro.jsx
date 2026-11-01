@@ -39,7 +39,7 @@ export default function Outro() {
           </div>
           <div className="site-footer-bottom">
             <span>© {YEAR} lOOP. All rights reserved.</span>
-            <span>이 프로젝트는 성신여자대학교 졸업전시 작품이며, 국민체력100 공식 서비스가 아닙니다.</span>
+            <span>이 프로젝트는 성신여자대학교 졸업전시 작품이며, <br className="br-m" />국민체력100 공식 서비스가 아닙니다.</span>
             <a href="#top" onClick={toTop}>맨 위로 ↑</a>
           </div>
         </footer>

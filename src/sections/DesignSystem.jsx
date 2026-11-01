@@ -22,7 +22,7 @@ export default function DesignSystem() {
     {/* ONE CONNECTED LOOP와 같은 레이아웃: 왼쪽 글 · 오른쪽 영상 */}
     <div className="ds-layout">
       <div className="ds-copy">
-        <header className="chapter-heading"><p className="kicker">DESIGN SYSTEM</p><h2>건강의 순환을 담은 <br />디자인 시스템</h2><p>측정에서 실천으로 이어지는 건강의 흐름을 <br />하나의 시각 언어로 연결했어요.</p></header>
+        <header className="chapter-heading"><p className="kicker">DESIGN SYSTEM</p><h2>건강의 순환을 담은 <br />디자인 시스템</h2><p>측정에서 실천으로 이어지는 건강의 흐름을 <br className="br-keep" />하나의 시각 언어로 연결했어요.</p></header>
         <Link className="text-action ds-source-link" to="/process?part=make">브랜드와 디자인 시스템 ↗</Link>
       </div>
       <div className="ds-film">

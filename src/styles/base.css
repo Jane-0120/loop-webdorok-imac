@@ -71,3 +71,7 @@ button { font: inherit; letter-spacing: inherit; }
 @supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
   .glass-frost { background: rgba(255, 255, 255, 0.94); }
 }
+
+/* 모바일 전용 줄바꿈: <br className="br-m" /> — 데스크톱에선 숨김 */
+br.br-m { display: none; }
+@media (max-width: 760px) { br.br-m { display: initial; } }

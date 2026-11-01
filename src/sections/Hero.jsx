@@ -16,6 +16,32 @@ export default function Hero() {
   const question = useRef(null)
   const [muted, setMuted] = useState(true)
 
+  // 기본은 소리 켜고 재생. 브라우저가 막으면(사용자 조작 전 자동재생 제한) 음소거로 재생하다가
+  // 첫 클릭·터치·키 입력 때 소리를 켬
+  useEffect(() => {
+    const el = video.current
+    if (!el) return
+    const unmuteOnGesture = () => {
+      el.muted = false
+      setMuted(false)
+      el.play().catch(() => {})
+      remove()
+    }
+    const events = ['pointerdown', 'keydown', 'touchstart']
+    const remove = () => events.forEach(e => window.removeEventListener(e, unmuteOnGesture))
+    el.muted = false
+    el.play().then(() => setMuted(false)).catch(() => {
+      el.muted = true
+      setMuted(true)
+      el.play().catch(() => {})
+      events.forEach(e => window.addEventListener(e, unmuteOnGesture, { once: true, passive: true }))
+    })
+    // 1분 동안 조작이 없어 처음으로 돌아오면 영상도 처음부터
+    const restart = () => { el.currentTime = 0; el.play().catch(() => {}) }
+    window.addEventListener('loop:idle-reset', restart)
+    return () => { remove(); window.removeEventListener('loop:idle-reset', restart) }
+  }, [])
+
   // 화면 밖이면 멈추고, 다시 보이면 이어서 재생
   useEffect(() => {
     const el = video.current
@@ -123,7 +149,7 @@ export default function Hero() {
       <div className="hero-horizon" ref={horizon} data-gnb-dark="0.45">
         <div className="hero-horizon-glow" aria-hidden="true" />
         <div className="hero-bridge">
-          <h2 className="hero-bridge-question" ref={question}><span className="hero-question-badge" aria-hidden="true">Q</span>국민체력100에서 체력 측정은 완료했는데, 오늘은 무엇부터 시작해야 할까요?</h2>
+          <h2 className="hero-bridge-question" ref={question}><span className="hero-question-badge" aria-hidden="true">Q</span>국민체력100에서 체력 측정은 완료했는데, 오늘은 무엇부터 <br className="br-m" />시작해야 할까요?</h2>
         </div>
       </div>
     </section>

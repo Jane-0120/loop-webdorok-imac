@@ -39,3 +39,13 @@ header.gnb.on-dark .gnb-burger span { background: var(--white); }
 /* GNB 아래 회색 구분선 없음 */
 header.gnb, header.gnb.is-solid, header.gnb .gnb-in { border-bottom: 0; }
 
+
+/* ───────── 모바일 (≤1024): 햄버거는 원형 배경 없이, 펼친 메뉴는 네비바와 같은 반투명 블러 ───────── */
+@media (max-width: 1024px) {
+  header.gnb .gnb-burger, header.gnb.on-dark .gnb-burger { background: none; border: 0; border-radius: 0; width: 32px; min-width: 32px; padding: 0; align-items: flex-end; }
+  header.gnb .gnb-burger span { width: 20px; }
+  header.gnb .gnb-nav { padding-bottom: 12px; background: rgb(250 250 251 / 88%); -webkit-backdrop-filter: blur(24px) saturate(150%); backdrop-filter: blur(24px) saturate(150%); }
+  header.gnb .gnb-nav a { border-bottom-color: rgb(10 2 39 / 6%); }
+  header.gnb.on-dark .gnb-nav { background: rgb(4 3 15 / 35%); }
+  header.gnb.on-dark .gnb-nav a { color: var(--white); border-bottom-color: rgb(255 255 255 / 12%); }
+}
