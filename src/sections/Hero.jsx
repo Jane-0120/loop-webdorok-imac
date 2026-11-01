@@ -36,7 +36,7 @@ export default function Hero() {
       el.play().catch(() => {})
       events.forEach(e => window.addEventListener(e, unmuteOnGesture, { once: true, passive: true }))
     })
-    // 1분 동안 조작이 없어 처음으로 돌아오면 영상도 처음부터
+    // 3분 동안 조작이 없어 처음으로 돌아오면 영상도 처음부터
     const restart = () => { el.currentTime = 0; el.play().catch(() => {}) }
     window.addEventListener('loop:idle-reset', restart)
     return () => { remove(); window.removeEventListener('loop:idle-reset', restart) }
