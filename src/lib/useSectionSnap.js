@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
 import { scrollToTarget } from './scroll'
 
-/** Settle near chapter boundaries without skipping content in long sections. */
+/** 섹션 경계 근처에서 멈추면 가까운 지점으로 맞춤. 지점은 [data-snap] 요소 (top: 화면 맨 위, end: 페이지 끝) */
 export default function useSectionSnap(root) {
   useEffect(() => {
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
@@ -21,10 +21,15 @@ export default function useSectionSnap(root) {
       intent = false
       const header = document.querySelector('.gnb')?.offsetHeight || 0
       const viewport = window.innerHeight - header
-      const points = [...root.current.children].filter(el => el.tagName === 'SECTION').flatMap(el => {
+      // 스냅 지점은 data-snap이 붙은 요소만: Hero 영상 · PROCESS · DESIGN SYSTEM · ONE CONNECTED LOOP · 맨 아래(푸터)
+      // Hero 아래 그라디언트 구간은 지점이 없어서 자유롭게 스크롤됨
+      const points = [...root.current.querySelectorAll('[data-snap]')].flatMap(el => {
         const rect = el.getBoundingClientRect()
-        const start = Math.max(0, rect.top + window.scrollY - header)
-        // Long chapters can settle at either edge without jumping past their content.
+        if (el.dataset.snap === 'end') return [Math.max(0, document.documentElement.scrollHeight - window.innerHeight)]
+        // data-snap-gap: 멈췄을 때 GNB 아래로 남길 여백(px)
+        const gap = Number(el.dataset.snapGap) || 0
+        const start = Math.max(0, rect.top + window.scrollY - (el.dataset.snap === 'top' ? 0 : header) - gap)
+        // 화면보다 긴 섹션은 위·아래 끝 어느 쪽에도 멈출 수 있게
         return rect.height > viewport + 100
           ? [start, Math.max(start, rect.bottom + window.scrollY - window.innerHeight)]
           : [start]

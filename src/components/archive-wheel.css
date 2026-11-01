@@ -1,0 +1,52 @@
+/* 아카이브 목차 휠 — 흰 카드 안에서 목차가 호를 그리며 돌고, 옆에 대표 장표 */
+/* 흰 카드 하나: 왼쪽 목차 휠 · 오른쪽 대표 장표 + 과정 보기 */
+.aw {
+  display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 7fr); gap: clamp(16px, 2vw, 40px);
+  align-items: center; padding: clamp(16px, 2vw, 32px); border-radius: var(--r-card); background-color: var(--aw-bg, var(--white)); transition: background-color .5s;
+  /* 왼쪽 목차 뒤로 은은한 블루 (세로 가운데) */
+  background-image: radial-gradient(ellipse 42% 75% at 0% 50%, color-mix(in srgb, var(--violet-100) 70%, transparent), transparent 100%); box-shadow: 0 20px 48px rgb(31 42 140 / 6%);
+}
+.aw-wheel {
+  --aw-radius: clamp(360px, 30vw, 560px);  /* 호의 반지름 */
+  --aw-step: 6deg;                          /* 항목 사이 각도 */
+  /* 머리글부터 카드까지 한 화면에 들어오도록 화면 높이로도 제한 */
+  --aw-h: min(clamp(300px, 24vw, 420px), calc(100svh - var(--gnb-h) - 440px));
+  position: relative; overflow: hidden; height: max(280px, var(--aw-h));
+  /* 위아래로 자연스럽게 사라지게 (불투명 100% → 0%) */
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, #000 30%, #000 70%, transparent 100%);
+  mask-image: linear-gradient(to bottom, transparent 0%, #000 30%, #000 70%, transparent 100%);
+}
+/* 회전 중심은 카드 왼쪽 바깥 — 항목들이 오른쪽으로 볼록한 호를 그림 */
+.aw-list { list-style: none; margin: 0; padding: 0; position: absolute; top: 50%; left: calc(18% - var(--aw-radius)); }
+.aw-list li {
+  position: absolute; left: 0; top: 0; transform-origin: 0 50%; translate: 0 -50%; white-space: nowrap;
+  transform: rotate(calc(var(--d) * var(--aw-step))) translateX(var(--aw-radius));
+  opacity: clamp(0, calc(1 - (max(var(--d), var(--d) * -1) - 1) * .11), 1);
+  transition: transform .7s var(--loop-card-ease), opacity .5s;
+}
+.aw-list li[aria-hidden] { pointer-events: none; }
+.aw-list button {
+  padding: 4px 0; border: 0; background: none; cursor: pointer; font: inherit; letter-spacing: -.01em; text-align: left;
+  font-size: clamp(18px, 1.6vw, 26px); font-weight: 400; color: var(--gray-700);
+  transition: transform .5s var(--loop-card-ease), color .3s;
+}
+.aw-list button:hover { color: var(--violet-500); }
+/* 가운데 항목: 오른쪽으로 밀려나 강조 */
+.aw-list li[data-active] button { transform: translateX(clamp(36px, 4vw, 72px)); color: var(--violet-500); font-weight: var(--w-semibold); }
+.aw-pin { position: absolute; top: 50%; left: calc(18% - 28px); width: 14px; height: 14px; margin-top: -7px; border-radius: var(--r-full); background: var(--violet-500); }
+.aw-list button:focus-visible { outline: 2px solid var(--violet-500); outline-offset: 4px; border-radius: 4px; }
+
+/* 장표: 박스 없이 이미지 자체에 작은 라운드 — 비율이 다른 장표도 카드 흰색 위에 자연스럽게 */
+.aw-slide { display: flex; align-items: center; justify-content: center; min-height: 0; }
+.aw-slide img { display: block; max-width: 100%; max-height: max(280px, min(clamp(300px, 24vw, 420px), calc(100svh - var(--gnb-h) - 440px))); width: auto; height: auto; border-radius: var(--r-sm); animation: awFade .5s ease both; }
+@keyframes awFade { from { opacity: 0; scale: 1.02; } to { opacity: 1; scale: 1; } }
+@media (max-width: 1024px) {
+  .aw { grid-template-columns: 1fr; }
+  .aw-wheel { height: 320px; --aw-radius: 340px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .aw-list li, .aw-list button { transition: none; }
+  .aw-slide img { animation: none; }
+}
+/* 스크롤로 굴리는 중엔 손을 따라 바로 움직이게 */
+.aw-wheel.is-scrolling .aw-list li { transition-duration: .14s, .14s; }

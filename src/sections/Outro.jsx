@@ -1,12 +1,49 @@
 import { Link } from 'react-router-dom'
 import { Wordmark } from '../components/Wordmark'
 import { scrollToTarget } from '../lib/scroll'
-import { PROTOTYPE_URL } from '../data/links'
+import { PROCESS_URL } from '../data/links'
+import TryCards from '../components/TryCards'
+import './outro-footer.css'
+
+const YEAR = 2026
 
 export default function Outro() {
+  const toTop = e => { e.preventDefault(); scrollToTarget(0) }
   return (
-    <section className="closing" id="prototype">
-      <div className="closing-in"><p className="kicker">A HEALTHIER LOOP</p><h2>공공의 체력 관리가,<br />나의 지속 가능한 습관으로</h2><div className="closing-actions"><Link className="text-action" to="/archive/result">최종 화면 살펴보기 ↗</Link>{PROTOTYPE_URL && <a className="text-action" href={PROTOTYPE_URL} target="_blank" rel="noopener">프로토타입 체험 ↗</a>}</div><div className="closing-word"><Wordmark height="100%" /></div><footer className="closing-footer"><span>국민체력100 서비스 경험 리뉴얼<br />디자인씽킹스튜디오 2026</span><span>김제인 · 이서연</span><a href="#top" onClick={e => { e.preventDefault(); scrollToTarget(0) }}>맨 위로 ↑</a></footer></div>
+    <section className="closing" id="prototype" data-snap="end">
+      <div className="closing-in">
+        <h2>건강을 위한 공공서비스가<br />우리의 일상에 더 오래 함께하도록</h2>
+
+        <TryCards />
+
+        <footer className="site-footer">
+          <div className="site-footer-top">
+            <div className="site-footer-brand">
+              <Wordmark height={56} />
+              <p>측정에서 끝나지 않는 건강의 선순환.<br />국민체력100 서비스 리디자인 프로젝트</p>
+            </div>
+            <nav className="site-footer-nav" aria-label="사이트 메뉴">
+              <div>
+                <p>Explore</p>
+                <a href="#service">Service</a>
+                <Link to={PROCESS_URL}>Process</Link>
+                <Link to="/archive/result">Outcome</Link>
+              </div>
+              <div>
+                <p>Project</p>
+                <span>디자인씽킹스튜디오 {YEAR}</span>
+                <span>2026.03 – 2026.10</span>
+                <span>김제인 · 이서연</span>
+              </div>
+            </nav>
+          </div>
+          <div className="site-footer-bottom">
+            <span>© {YEAR} lOOP. All rights reserved.</span>
+            <span>이 프로젝트는 성신여자대학교 졸업전시 작품이며, 국민체력100 공식 서비스가 아닙니다.</span>
+            <a href="#top" onClick={toTop}>맨 위로 ↑</a>
+          </div>
+        </footer>
+      </div>
     </section>
   )
 }

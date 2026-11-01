@@ -1,0 +1,8 @@
+/* THE DECISIONS — 제목·설명 + 과정 보기, 아래 목차 휠 카드 */
+.research-head { display: flex; justify-content: space-between; align-items: flex-end; gap: 32px; margin-bottom: 48px; }
+/* DESIGN SYSTEM의 「브랜드와 디자인 시스템 ↗」과 같은 텍스트 버튼(.text-action). 오른쪽 끝은 아래 장표에 맞춤 */
+.research-cta { flex: none; margin-right: clamp(16px, 2vw, 32px); }
+@media (max-width: 760px) {
+  .research-head { flex-direction: column; align-items: flex-start; }
+  .research-cta { margin-right: 0; }
+}

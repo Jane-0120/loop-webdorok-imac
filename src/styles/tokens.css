@@ -49,6 +49,26 @@
   --about-gap: clamp(32px, 5vw, 96px);
   --about-name-w: 160px;
 
+  /* S01 Hero 브랜드 필름 */
+  --hero-night: #04030F;            /* 영상 뒤 우주 같은 검정 */
+  --hero-film-bg: var(--hero-night);
+  --landing-bg: #FAFAFB;
+  --hero-film-max: 1600px;          /* 영상 최대 폭 */
+  --hero-film-gap: 24px;            /* GNB·영상·스크롤 표시 사이 간격 */
+  --hero-film-cue: 48px;            /* Scroll down 표시 높이 */
+  --hero-ambient-blur: 90px;        /* 영상 색 배경 블러 */
+  --hero-ambient-opacity: .55;
+  --hero-horizon-h: 105svh;         /* 검정 → 블루 → 흰색 전환 구간 길이 */
+  --hero-bridge-top: 70%;           /* 질문 말풍선 세로 위치(지평선 구간 기준) — 파란 띠의 가운데 */
+  /* ONE CONNECTED LOOP 카드 캐러셀 */
+  /* 카드 높이(폭×4/3)가 한 화면 안에 들어오도록 화면 높이로도 제한 */
+  --loop-card-w: min(clamp(260px, 22vw, 420px), calc((100svh - var(--gnb-h) - 200px) * .75));
+  --loop-card-side-x: .92;          /* 옆 카드가 가운데에서 벗어나는 거리(카드 폭 기준) */
+  --loop-card-side-scale: .74;
+  --loop-card-ease: cubic-bezier(.65, 0, .35, 1);
+  --loop-card-dur: 900ms;
+  --loop-card-shade: linear-gradient(to top, rgb(10 2 39 / 78%) 0%, rgb(10 2 39 / 35%) 32%, transparent 55%);
+
   /* web layout — Hi-Fi 1920 기준: 좌우 121 / 상하 110 */
   --mx: clamp(20px, 6.3vw, 121px);
   --my: clamp(72px, 5.73vw, 110px);

@@ -2,7 +2,7 @@ import { useEffect } from 'react'
 import { Routes, Route } from 'react-router-dom'
 import Gnb from './components/Gnb'
 import Landing from './pages/Landing'
-import Archive from './pages/Archive'
+import Archive, { Process } from './pages/Archive'
 import { startLenis } from './lib/scroll'
 
 /**
@@ -16,6 +16,7 @@ export default function App() {
     <>
       <Gnb />
       <Routes>
+        <Route path="/process" element={<Process />} />
         <Route path="/archive/:chapter" element={<Archive />} />
         <Route path="*" element={<Landing />} />
       </Routes>

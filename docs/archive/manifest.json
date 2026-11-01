@@ -9,8 +9,7 @@
      "id": "overview",
      "title": "개요",
      "slides": [
-      "research/r001.jpg",
-      "research/r002.jpg"
+      "research/r001.jpg"
      ],
      "summary": "측정 이후의 공백을 설계해 체력 데이터를 일상 속 행동으로 연결합니다."
     },
@@ -44,7 +43,6 @@
      "slides": [
       "research/r020.jpg",
       "research/r021.jpg",
-      "research/r022.jpg",
       "research/r023.jpg"
      ],
      "summary": "측정 결과가 목표와 운동 계획으로 연결될 때 측정 경험은 루틴 형성의 계기가 됩니다."
@@ -64,8 +62,27 @@
      "summary": "측정 현장의 만족도와 별개로 결과 비교 기준과 이후 행동을 돕는 안내가 필요합니다."
     },
     {
+     "id": "safari-web",
+     "title": "서비스 사파리 · 홈페이지·온라인 코칭",
+     "slides": [
+      "research/r050.jpg",
+      "research/r051.jpg",
+      "research/r052.jpg",
+      "research/r053.jpg",
+      "research/r054.jpg",
+      "research/r055.jpg",
+      "research/r056.jpg",
+      "research/r057.jpg",
+      "research/r058.jpg",
+      "research/r059.jpg",
+      "research/r060.jpg",
+      "research/r061.jpg"
+     ],
+     "summary": "홈페이지에 머무는 운동 처방을 일상에서 쉽게 다시 확인하고 실천할 수 있어야 합니다."
+    },
+    {
      "id": "survey",
-     "title": "설문조사 · 70명",
+     "title": "설문조사",
      "slides": [
       "research/r031.jpg",
       "research/r032.jpg",
@@ -90,25 +107,6 @@
      "summary": "건강 관심만으로 실천이 시작되지는 않아 결과 해석과 구체적인 첫 행동 안내가 필요합니다."
     },
     {
-     "id": "safari-web",
-     "title": "서비스 사파리 · 홈페이지·온라인 코칭",
-     "slides": [
-      "research/r050.jpg",
-      "research/r051.jpg",
-      "research/r052.jpg",
-      "research/r053.jpg",
-      "research/r054.jpg",
-      "research/r055.jpg",
-      "research/r056.jpg",
-      "research/r057.jpg",
-      "research/r058.jpg",
-      "research/r059.jpg",
-      "research/r060.jpg",
-      "research/r061.jpg"
-     ],
-     "summary": "홈페이지에 머무는 운동 처방을 일상에서 쉽게 다시 확인하고 실천할 수 있어야 합니다."
-    },
-    {
      "id": "interview",
      "title": "방문자 인터뷰",
      "slides": [
@@ -127,7 +125,7 @@
     },
     {
      "id": "netnography",
-     "title": "넷노그라피 · 6개 센터",
+     "title": "넷노그라피",
      "slides": [
       "research/r072.jpg",
       "research/r073.jpg",
@@ -214,14 +212,15 @@
       "research/r126.jpg",
       "research/r127.jpg",
       "research/r128.jpg",
-      "research/r129.jpg",
       "research/r130.jpg",
       "research/r131.jpg",
       "research/r132.jpg",
       "research/r133.jpg",
-      "research/r134.jpg"
+      "research/r134.jpg",
+      "research/r129.jpg"
      ],
-     "summary": "필요성은 느끼지만 실천을 지속하기 어려운 사용자를 주요 대상으로 설정했습니다."
+     "summary": "필요성은 느끼지만 실천을 지속하기 어려운 사용자를 주요 대상으로 설정했습니다.",
+     "cover": "research/r130.jpg"
     }
    ]
   },
@@ -255,7 +254,8 @@
       "plan/p013.jpg",
       "plan/p014.jpg"
      ],
-     "summary": "결과 이해·작은 첫 실천·재측정과 변화 확인을 하나의 서비스 방향으로 묶었습니다."
+     "summary": "결과 이해·작은 첫 실천·재측정과 변화 확인을 하나의 서비스 방향으로 묶었습니다.",
+     "cover": "plan/p006.jpg"
     },
     {
      "id": "features",
@@ -268,8 +268,7 @@
       "plan/p019.jpg",
       "plan/p020.jpg",
       "plan/p021.jpg",
-      "plan/p022.jpg",
-      "plan/p028.jpg"
+      "plan/p022.jpg"
      ],
      "summary": "MVP 기능을 결과 해석부터 12주 실천과 재측정까지 이어지는 하나의 행동 전환 루프로 연결했습니다."
     },
@@ -277,11 +276,12 @@
      "id": "blueprint",
      "title": "서비스 블루프린트",
      "slides": [
-      "plan/p023.jpg",
       "plan/p024.jpg",
       "plan/p025.jpg",
       "plan/p026.jpg",
-      "plan/p027.jpg"
+      "plan/p027.jpg",
+      "plan/p027b.jpg",
+      "plan/p028.jpg"
      ],
      "summary": "센터의 측정과 상담에서 일상 실천·변화 확인·재측정까지 사용자와 운영의 접점을 연결했습니다."
     },
@@ -293,14 +293,6 @@
       "plan/p030.jpg"
      ],
      "summary": "핵심 루프와 확장 기능의 우선순위·출시 단계를 나눠 구현 기준을 정리했습니다."
-    },
-    {
-     "id": "timeline",
-     "title": "일정",
-     "slides": [
-      "plan/p031.jpg"
-     ],
-     "summary": "서비스 디자인 이후 사용자 테스트와 개선, 전시 체험 제작으로 이어지는 일정을 계획했습니다."
     }
    ]
   },
@@ -311,16 +303,17 @@
     {
      "id": "brand",
      "title": "브랜드 · 로고",
+     "summary": "숫자 100과 이어지는 고리를 결합한 로고와 브랜드 방향.",
      "slides": [
       "make/m001.jpg",
       "make/m002.jpg",
       "make/m003.jpg"
-     ],
-     "summary": "숫자 100과 이어지는 고리를 결합한 로고와 브랜드 방향."
+     ]
     },
     {
      "id": "foundation",
      "title": "파운데이션",
+     "summary": "색·타이포그래피·간격과 반경의 공통 규칙으로 화면 구성의 일관성을 만듭니다.",
      "slides": [
       "make/m004.jpg",
       "make/m005.jpg",
@@ -335,36 +328,43 @@
       "make/m014.jpg",
       "make/m015.jpg",
       "make/m016.jpg"
-     ],
-     "summary": "색·타이포그래피·간격과 반경의 공통 규칙으로 화면 구성의 일관성을 만듭니다."
+     ]
     },
     {
      "id": "components",
      "title": "컴포넌트",
+     "summary": "주요 행동의 중요도와 상태를 공통 컴포넌트의 변형으로 구분합니다.",
      "slides": [
       "make/m017.jpg",
       "make/m018.jpg",
       "make/m019.jpg",
-      "make/m020.jpg",
-      "make/m021.jpg"
-     ],
-     "summary": "주요 행동의 중요도와 상태를 공통 컴포넌트의 변형으로 구분합니다."
+      "make/m020.jpg"
+     ]
     },
     {
      "id": "ia",
      "title": "IA 개편",
+     "summary": "모바일 앱과 처방사 대시보드의 정보 구조.",
      "slides": [
-      "make/m022.jpg",
-      "make/m023.jpg",
-      "make/m024.jpg",
-      "make/m025.jpg"
-     ],
-     "summary": "모바일 앱과 처방사 대시보드의 정보 구조."
+      "make/m021.jpg",
+      "make/m022.jpg"
+     ]
     },
     {
      "id": "wireframe",
      "title": "와이어프레임",
+     "summary": "모바일 앱 14장, 처방사 대시보드 10장의 화면 설계.",
      "slides": [
+      "make/m023.jpg",
+      "make/m024.jpg"
+     ]
+    },
+    {
+     "id": "flow",
+     "title": "메인 플로우",
+     "summary": "온보딩부터 변화 확인까지, 핵심 여정 8단계.",
+     "slides": [
+      "make/m025.jpg",
       "make/m026.jpg",
       "make/m027.jpg",
       "make/m028.jpg",
@@ -372,7 +372,14 @@
       "make/m030.jpg",
       "make/m031.jpg",
       "make/m032.jpg",
-      "make/m033.jpg",
+      "make/m033.jpg"
+     ]
+    },
+    {
+     "id": "dashboard",
+     "title": "처방사 대시보드",
+     "summary": "국민체력100 처방사를 위한 회원 운동 관리 대시보드.",
+     "slides": [
       "make/m034.jpg",
       "make/m035.jpg",
       "make/m036.jpg",
@@ -384,13 +391,34 @@
       "make/m042.jpg",
       "make/m043.jpg",
       "make/m044.jpg",
-      "make/m045.jpg",
+      "make/m045.jpg"
+     ]
+    },
+    {
+     "id": "aiot",
+     "title": "AIoT 디바이스",
+     "summary": "개인이 집에서도 운동을 이어갈 수 있도록 돕는 가정용 AIoT 코칭 기기.",
+     "slides": [
       "make/m046.jpg",
       "make/m047.jpg",
       "make/m048.jpg",
       "make/m049.jpg"
-     ],
-     "summary": "모바일 앱 14장, 처방사 대시보드 10장의 화면 설계."
+     ]
+    },
+    {
+     "id": "usability",
+     "title": "사용성 테스트",
+     "summary": "",
+     "slides": [
+      "make/m050.jpg",
+      "make/m051.jpg",
+      "make/m052.jpg",
+      "make/m053.jpg",
+      "make/m054.jpg",
+      "make/m055.jpg",
+      "make/m056.jpg",
+      "make/m057.jpg"
+     ]
     }
    ]
   },

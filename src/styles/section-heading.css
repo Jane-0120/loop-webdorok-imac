@@ -1,0 +1,28 @@
+/* 랜딩 섹션 머리 통일 — PROCESS · DESIGN SYSTEM · ONE CONNECTED LOOP
+   라벨(kicker) → 제목 → 부제목, 크기·굵기·간격을 한 곳에서 */
+:root {
+  --sec-kicker-fs: var(--fs-16);
+  --sec-title-fs: var(--fs-56);   /* 랜딩에선 --fs-56 = 36px (landing-refresh에서 재정의) */
+  --sec-sub-fs: var(--fs-18);
+  --sec-gap-title: 12px;   /* 라벨 ↔ 제목 */
+  --sec-gap-sub: 16px;     /* 제목 ↔ 부제목 */
+  --sec-head-mb: 48px;     /* 머리 ↔ 본문 */
+}
+.landing :is(.care-heading, .research-copy, #design-system .chapter-heading) {
+  display: flex; flex-direction: column; align-items: flex-start; gap: 0; text-align: left;
+}
+.landing #design-system .chapter-heading { margin-bottom: 32px; }
+.landing :is(.care-heading, .research-copy, #design-system .chapter-heading) > .kicker {
+  margin: 0 0 var(--sec-gap-title); font-size: var(--sec-kicker-fs); font-weight: var(--w-semibold); letter-spacing: 0; color: var(--violet-500);
+}
+.landing :is(.care-heading, .research-copy, #design-system .chapter-heading) > h2 {
+  margin: 0; font-size: var(--sec-title-fs); font-weight: var(--w-semibold); line-height: 1.3; letter-spacing: -.02em; color: var(--gray-900);
+}
+.landing :is(.care-heading, .research-copy, #design-system .chapter-heading) > p:not(.kicker) {
+  margin: var(--sec-gap-sub) 0 0; max-width: none; align-self: auto; justify-self: auto;
+  font-size: var(--sec-sub-fs); font-weight: 400; line-height: 1.6; color: var(--gray-600); word-break: keep-all;
+}
+.landing .research-head { margin-bottom: var(--sec-head-mb); }
+
+/* 섹션 사이 회색 구분선 없음 */
+.landing > :is(.chapter, .archive-entry, .care-flow, .design-system) { border-top: 0; }

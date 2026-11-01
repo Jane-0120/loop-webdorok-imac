@@ -4,12 +4,12 @@ import useSectionSnap from '../lib/useSectionSnap'
 import { useLocation } from 'react-router-dom'
 import Hero from '../sections/Hero'
 import ConnectionFlow from '../sections/ConnectionFlow'
-import Play from '../sections/Play'
 import Behind from '../sections/Behind'
 import Outro from '../sections/Outro'
 import DesignSystem from '../sections/DesignSystem'
 import { rememberLandingPosition } from '../lib/returnPosition'
 import { scrollToTarget } from '../lib/scroll'
+import '../styles/section-heading.css'
 
 export default function Landing() {
   const root = useRef(null)
@@ -33,10 +33,9 @@ export default function Landing() {
     <>
       <main ref={root} className="landing" onClickCapture={rememberLandingPosition}>
         <Hero />
-        <Play />
-        <ConnectionFlow />
         <Behind />
         <DesignSystem />
+        <ConnectionFlow />
         <Outro />
       </main>
     </>

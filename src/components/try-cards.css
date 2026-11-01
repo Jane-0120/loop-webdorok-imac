@@ -1,0 +1,17 @@
+/* 체험 카드: 설명 + QR */
+.try-cards { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; margin-top: 32px; }
+.try-card {
+  display: flex; align-items: center; justify-content: space-between; gap: 24px; padding: 24px 24px 24px 28px;
+  border-radius: var(--r-card); background: rgb(255 255 255 / 12%); border: 1px solid rgb(255 255 255 / 22%);
+  color: var(--white); text-decoration: none; transition: background-color .25s, transform .25s;
+}
+.try-card:hover { background: rgb(255 255 255 / 20%); transform: translateY(-2px); }
+.try-card-copy { display: grid; gap: 8px; }
+.try-card-copy b { font-size: var(--fs-20); font-weight: var(--w-semibold); }
+.try-card-copy p { margin: 0; font-size: var(--fs-14); line-height: 1.6; color: var(--violet-100); word-break: keep-all; }
+.try-card-url { font-size: var(--fs-12); color: rgb(255 255 255 / 60%); }
+.try-card-qr { flex: none; width: 88px; height: 88px; }
+@media (max-width: 760px) {
+  .try-cards { grid-template-columns: 1fr; }
+  .try-card-qr { width: 72px; height: 72px; }
+}

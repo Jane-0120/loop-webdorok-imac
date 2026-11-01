@@ -8,7 +8,7 @@
 .ar-meta { display: flex; flex-wrap: wrap; gap: 8px; margin: 12px 0 0; padding: 0; list-style: none; }
 
 /* 본문: 좌 목차 sticky + 우 장표 스택 */
-.ar-body { display: grid; grid-template-columns: minmax(240px, 320px) 1fr; gap: 56px; align-items: start; }
+.ar-body { display: grid; grid-template-columns: minmax(240px, 320px) minmax(0, 1fr); gap: clamp(24px, 2.5vw, 48px); align-items: start; }
 
 .ar-toc { position: sticky; top: calc(var(--gnb-h) + 24px); max-height: calc(100vh - var(--gnb-h) - 48px); overflow-y: auto; transition: top .35s ease; }
 [data-gnb="hidden"] .ar-toc { top: 24px; max-height: calc(100vh - 48px); }
@@ -82,3 +82,85 @@
 .ar-section-head p { color: var(--gray-600); }
 .ar-slide-button { display: block; width: 100%; border: 0; padding: 0; background: var(--white); cursor: zoom-in; }
 .ar-slide-button:focus-visible { outline-offset: -4px; }
+
+/* ───────── #/process — 리서치·기획·제작 한 페이지 ───────── */
+/* 모바일: 위에 떠 있는 파트 탭 (데스크톱은 왼쪽 목차 안으로) */
+.ar-parts {
+  position: sticky; top: calc(var(--gnb-h) + 8px); z-index: 31; width: fit-content; margin: 0 auto 24px;
+  display: none; gap: 4px; padding: 6px; border-radius: var(--r-full);
+  background: color-mix(in srgb, var(--white) 80%, transparent); -webkit-backdrop-filter: blur(20px); backdrop-filter: blur(20px);
+  box-shadow: 0 8px 24px rgb(31 42 140 / 8%);
+}
+.ar-parts button {
+  display: inline-flex; align-items: center; gap: 8px; padding: 8px 14px; border: 0; border-radius: var(--r-full); background: none; cursor: pointer;
+  font: inherit; font-size: var(--fs-16); font-weight: var(--w-semibold); color: var(--gray-500); transition: background-color .25s, color .25s;
+}
+.ar-parts button.is-active { background: var(--violet-500); color: var(--white); }
+.ar-part-i, .ar-part-n { font-size: var(--fs-12); font-variant-numeric: tabular-nums; opacity: .6; }
+
+/* 데스크톱 왼쪽 목차: 파트 전환 + 진행 막대 + 파트별로 묶인 스크롤 목차 */
+.ar-toc.ar-toc-process { display: flex; flex-direction: column; gap: 16px; overflow: visible; height: calc(100vh - var(--gnb-h) - 48px); max-height: none; }
+.ar-switch { flex: none; display: grid; gap: 12px; }
+.ar-switch-tabs { display: grid; grid-template-columns: repeat(3, 1fr); gap: 4px; padding: 4px; border-radius: var(--r-full); background: var(--white); box-shadow: 0 6px 18px rgb(31 42 140 / 6%); }
+.ar-toc .ar-switch-tabs button {
+  display: flex; justify-content: center; align-items: baseline; gap: 6px; padding: 10px 8px; border-radius: var(--r-full);
+  font-size: var(--fs-16); font-weight: var(--w-semibold); color: var(--gray-500); grid-template-columns: none;
+}
+.ar-toc .ar-switch-tabs button span { font-size: var(--fs-12); opacity: .6; font-variant-numeric: tabular-nums; }
+.ar-toc .ar-switch-tabs button:hover { color: var(--gray-900); background: none; }
+.ar-toc .ar-switch-tabs button[aria-selected="true"] { background: var(--violet-500); color: var(--white); }
+.ar-progress { height: 2px; border-radius: 2px; background: var(--gray-200); overflow: hidden; }
+.ar-progress i { display: block; height: 100%; width: calc(var(--p) * 100%); background: var(--violet-500); transition: width .4s ease; }
+
+.ar-toc-scroll {
+  position: relative; flex: 1; min-height: 0; overflow-y: auto; overscroll-behavior: contain; scrollbar-width: none;
+  -webkit-mask-image: linear-gradient(to bottom, #000 85%, transparent); mask-image: linear-gradient(to bottom, #000 85%, transparent);
+}
+.ar-toc-scroll::-webkit-scrollbar { display: none; }
+/* 마지막 파트도 목차 맨 위까지 올라올 수 있게 여유 */
+.ar-toc-scroll::after { content: ''; display: block; height: 70%; }
+.ar-toc-group + .ar-toc-group { margin-top: 12px; }
+/* 파트 머리: 목차를 스크롤해도 맨 위에 붙어 있음 */
+.ar-toc .ar-toc-part {
+  position: sticky; top: 0; z-index: 2; display: block;
+  margin: 0; padding: 12px; border-radius: 0; background: var(--gray-50); color: var(--gray-400);
+  box-shadow: 0 1px 0 var(--gray-200);
+}
+.ar-toc .ar-toc-part b { font-size: var(--fs-16); font-weight: var(--w-semibold); }
+.ar-toc-part-i, .ar-toc-part-n { font-size: var(--fs-12); font-variant-numeric: tabular-nums; }
+.ar-toc .ar-toc-part:hover { background: var(--gray-50); color: var(--gray-900); }
+.ar-toc-group[data-active] .ar-toc-part { color: var(--gray-900); }
+.ar-toc-group[data-active] .ar-toc-part-i { color: var(--violet-500); }
+.ar-toc-group ol { padding-top: 6px; }
+/* 지금 파트가 아닌 묶음은 한 톤 흐리게 */
+.ar-toc-group:not([data-active]) ol { opacity: .55; transition: opacity .3s; }
+.ar-toc-group:not([data-active]):hover ol { opacity: 1; }
+.ar-process .ar-toc { top: calc(var(--gnb-h) + 24px); }
+/* 파트마다 머리 + 장표 묶음 */
+.ar-parts-stack { min-width: 0; display: grid; gap: clamp(64px, 8vw, 120px); }
+.ar-part { scroll-margin-top: calc(var(--gnb-h) + 84px); }
+/* 간지: 파트 시작을 알리는 파란 블록 */
+.ar-part-head {
+  display: grid; gap: 16px; margin-bottom: 16px; padding: clamp(32px, 4vw, 56px);
+  border-radius: var(--r-lg); background: var(--violet-500); color: var(--white); /* 장표 카드(.ar-sec)와 같은 라운드 */
+}
+.ar-part-head h2 { margin: 0; color: var(--white); font-weight: var(--w-semibold); }
+.ar-part-head p { margin: 0; display: grid; gap: 2px; color: rgb(255 255 255 / 82%); }
+.ar-part-head p span { word-break: keep-all; }
+@media (max-width: 1024px) {
+  .ar-parts { display: flex; }
+  .ar-process .ar-chips { top: calc(var(--gnb-h) + 64px); }
+}
+
+/* 과정 페이지: 섹션 제목·설명 없이, 목차가 넘어가는 자리마다 여백으로만 구분 */
+.ar-process .ar-stack { display: grid; gap: clamp(48px, 6vw, 96px); overflow: visible; background: none; border-radius: 0; }
+.ar-process .ar-sec { overflow: clip; border-radius: var(--r-lg); background: var(--white); scroll-margin-top: calc(var(--gnb-h) + 24px); }
+
+/* 과정 페이지 요약은 지정한 줄바꿈대로 */
+.ar-process .ar-summary { max-width: none; }
+
+/* 상단 글 영역: 홈 섹션 머리(section-heading.css)와 같은 크기·굵기·간격, 위 여백은 줄임 */
+.ar-head { padding: calc(var(--gnb-h) + clamp(24px, 3vw, 48px)) 0 clamp(32px, 4vw, 56px); gap: 0; }
+.ar-head .ar-eyebrow { margin: 0 0 12px; font-size: var(--fs-16); font-weight: var(--w-semibold); color: var(--violet-500); }
+.ar-head h1 { margin: 0; font-size: var(--fs-56); font-weight: var(--w-semibold); line-height: 1.3; letter-spacing: -.02em; color: var(--gray-900); }
+.ar-head .ar-summary { margin: 16px 0 0; font-size: var(--fs-18); font-weight: 400; line-height: 1.6; color: var(--gray-600); }

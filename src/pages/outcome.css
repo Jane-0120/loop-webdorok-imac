@@ -1,0 +1,7 @@
+/* 결과물: 이미지만 세로로 이어 붙임. 좌우는 사이트 여백(--mx), 폭은 콘텐츠 폭(--content) */
+.oc { padding: calc(var(--gnb-h) + clamp(24px, 3vw, 48px)) var(--mx) var(--my); }
+.oc-stack { max-width: var(--content); margin: 0 auto; overflow: clip; border-radius: var(--r-lg); }
+.oc-stack img { display: block; width: 100%; height: auto; }
+/* 하단 체험 카드: 홈 푸터와 같은 파란 바탕 위 카드 */
+.oc-try { max-width: var(--content); margin: clamp(24px, 3vw, 40px) auto 0; padding: clamp(20px, 2.5vw, 40px); border-radius: var(--r-lg); background: var(--violet-500); color: var(--white); }
+.oc-try .try-cards { margin-top: 0; }

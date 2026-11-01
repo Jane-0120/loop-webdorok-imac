@@ -1,0 +1,8 @@
+/* DESIGN SYSTEM — 브랜드 아이덴티티 영상 카드 (3840×2160, 16:9) */
+.ds-film { overflow: hidden; aspect-ratio: 16 / 9; border-radius: var(--r-card); background: var(--violet-100); }
+.ds-film video { display: block; width: 100%; height: 100%; object-fit: cover; }
+/* 왼쪽 글 · 오른쪽 영상 — ONE CONNECTED LOOP(.care-layout)와 같은 4:8 그리드 */
+.ds-layout { max-width: var(--content); margin: 0 auto; display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 8fr); align-items: center; gap: clamp(32px, 4vw, 80px); }
+.ds-copy { display: grid; justify-items: start; }
+.ds-copy .ds-source-link { margin: 0; }
+@media (max-width: 1024px) { .ds-layout { grid-template-columns: 1fr; gap: 40px; } }

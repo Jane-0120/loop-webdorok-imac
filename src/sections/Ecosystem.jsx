@@ -18,7 +18,7 @@ export default function Ecosystem() {
   return (
     <section className="chapter ecosystem" id="ecosystem">
       <span id="aiot" className="section-anchor" /><span id="prescriber" className="section-anchor" />
-      <header className="chapter-heading"><p className="kicker">03 / CONNECTED CARE</p><h2>센터에서 집까지.<br />코칭은 이어집니다.</h2><p>앱으로 시작한 실천을<br />전문가와 가정용 기기가 함께 돕습니다.</p></header>
+      <header className="chapter-heading"><p className="kicker">CONNECTED CARE</p><h2>센터에서 집까지.<br />코칭은 이어집니다.</h2><p>앱으로 시작한 실천을<br />전문가와 가정용 기기가 함께 돕습니다.</p></header>
       <div className="ecosystem-controls" aria-label="서비스 구성 선택">{PARTS.map((part, i) => <button type="button" key={part.name} aria-pressed={active === i} onClick={() => choose(i)}>{part.name}<span aria-hidden="true">↗</span></button>)}</div>
       <div className="ecosystem-stage" data-kind={active}>
         <button type="button" className="ecosystem-image" aria-label={`${item.name} 크게 보기`} onClick={() => setLightbox(active)}><img src={item.src} alt={item.name} loading="lazy" /></button>

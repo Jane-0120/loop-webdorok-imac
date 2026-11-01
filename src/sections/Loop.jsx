@@ -24,7 +24,7 @@ export default function Loop() {
   }
   return (
     <section className="chapter journey" id="service">
-      <header className="chapter-heading"><p className="kicker">01 / THE SERVICE</p><h2>한 번의 측정에서,<br />12주의 변화까지.</h2><p>측정 · 실천 · 성장 · 리포트.<br />단계를 선택해 일상의 흐름을 살펴보세요.</p></header>
+      <header className="chapter-heading"><p className="kicker">THE SERVICE</p><h2>한 번의 측정에서,<br />12주의 변화까지.</h2><p>측정 · 실천 · 성장 · 리포트.<br />단계를 선택해 일상의 흐름을 살펴보세요.</p></header>
       <div className="journey-layout">
         <div className="journey-index" role="tablist" aria-label="서비스 과정" onKeyDown={onKeys}>
           {STATIONS.map((item, i) => <button type="button" role="tab" id={`journey-tab-${i}`} key={item.n} aria-selected={active === i} aria-controls="journey-panel" tabIndex={active === i ? 0 : -1} onClick={() => setActive(i)}><span>{item.n}</span><b>{item.ko}</b><i aria-hidden="true">↗</i></button>)}
