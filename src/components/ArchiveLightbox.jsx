@@ -13,9 +13,11 @@ export default function ArchiveLightbox({ slides, index, onIndex, onClose, loop 
     const overflow = document.documentElement.style.overflow
     const resume = pauseScroll()
     document.documentElement.style.overflow = 'hidden'
-    el.showModal()
+    // Safari 15.4 미만은 dialog API가 없음 — 여기서 에러가 나면 사이트 전체가 흰 화면이 됨
+    if (el.showModal) el.showModal()
+    else el.setAttribute('open', '')
     return () => {
-      el.close()
+      el.close?.()
       document.documentElement.style.overflow = overflow
       resume()
       if (opener instanceof HTMLElement && opener.isConnected) opener.focus({ preventScroll: true })

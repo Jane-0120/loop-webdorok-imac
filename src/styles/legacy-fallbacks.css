@@ -1,0 +1,34 @@
+/* 구형 브라우저(macOS 12 초기 Safari 등) 대체값. 최신 브라우저에는 적용되지 않음.
+   svh·dvh의 일반 선언은 vite.config.js에서 자동 처리 */
+
+/* overflow clip 미지원 */
+@supports not (overflow: clip) {
+  body, .care-flow { overflow-x: hidden; }
+  .oc-stack, .ar-stack, .ar-process .ar-sec { overflow: hidden; }
+}
+
+/* 커스텀 속성은 자동 대체가 안 돼서 여기서 덮어씀 */
+@supports not (height: 1svh) {
+  :root {
+    --hero-horizon-h: 105vh;
+    --loop-card-w: min(clamp(260px, 22vw, 420px), calc((100vh - var(--gnb-h) - 200px) * .75));
+  }
+  .aw-wheel { --aw-h: min(clamp(300px, 24vw, 420px), calc(100vh - var(--gnb-h) - 440px)); }
+}
+
+/* color-mix 미지원: 중간 색 단계 없이 토큰 색만으로 */
+@supports not (color: color-mix(in srgb, red, blue)) {
+  .hero-horizon-glow {
+    background:
+      linear-gradient(to bottom, var(--hero-night) 0%, transparent 30%),
+      linear-gradient(to bottom, transparent 84%, var(--landing-bg) 100%),
+      radial-gradient(
+        ellipse 170% calc(80% + var(--horizon) * 20%) at 50% 100%,
+        var(--landing-bg) 0%, var(--landing-bg) 6%, var(--violet-100) 50%, var(--violet-300) 61%,
+        var(--violet-500) 75%, var(--violet-700) 88%, var(--hero-night) 100%
+      );
+  }
+  .aw { background-image: none; }
+  .ar-chips { background: var(--gray-50); }
+  .ar-parts { background: var(--white); }
+}
