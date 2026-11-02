@@ -2,7 +2,9 @@
 @import './tokens.css';
 
 *, *::before, *::after { box-sizing: border-box; }
-html { -webkit-text-size-adjust: 100%; }
+/* 페이지 뒤 캔버스: Safari 전체 화면 상단·오버스크롤에 드러나는 부분이 흰색으로 보이지 않게 Hero와 같은 색으로 */
+html { -webkit-text-size-adjust: 100%; background: var(--hero-night); }
+html.page-light { background: var(--white); }
 body {
   margin: 0; background: var(--gray-50); color: var(--ink);
   font-family: var(--font); font-size: var(--fs-16); line-height: 1.5; letter-spacing: -0.02em;

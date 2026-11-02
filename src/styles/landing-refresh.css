@@ -4,7 +4,8 @@
   --content: 1792px;
   --mx: clamp(24px, 6vw, 120px);
   --my: clamp(56px, 7vw, 88px);
-  --gnb-h: 76px;
+  --gnb-top: 28px;   /* 아이맥 전체 화면: 화면 위 끝과 GNB 사이 여백 */
+  --gnb-h: 104px;   /* 여백 28 + 메뉴 줄 76. calc 금지(Home.jsx가 parseFloat로 읽음) */
   --fs-56: 36px; --fs-48: 24px; --fs-12: 14px; --fs-36: 36px; --fs-24: 24px; --fs-20: 20px;
   --r-card: var(--r-lg);
   --editorial-paper: var(--white);
@@ -147,7 +148,7 @@ body { background: var(--editorial-paper); }
 .evidence-links a { text-decoration: none; font-size: var(--fs-12); color: var(--gray-500); }
 .evidence-links b { display: block; font-size: var(--fs-24); font-weight: 500; color: var(--violet-500); margin-bottom: 8px; }
 @media (max-width: 1024px) {
-  :root { --gnb-h: 64px; --mx: 32px; --fs-56: 36px; --fs-48: 24px; }
+  :root { --gnb-top: 0px; --gnb-h: 64px; --mx: 32px; --fs-56: 36px; --fs-48: 24px; }
   .result-to-action { padding: 28px; gap: 20px; grid-template-columns: 1fr .3fr 1fr; }
   .sleep-experience { gap: 40px; }
   .care-track { grid-template-columns: repeat(2, 1fr); gap: 32px; }

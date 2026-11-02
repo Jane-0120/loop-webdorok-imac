@@ -9,7 +9,8 @@ npm install
 npm run dev      # http://localhost:5173
 npm run build    # dist/ → GitHub Pages (vite base './')
 ```
-- 배포: https://libe396.github.io/loop-webdorok/ (저장소 libe396/loop-webdorok) — main에 push하면 자동 배포 (.github/workflows/deploy.yml)
+- 배포: https://jane-0120.github.io/loop-webdorok-imac/ (저장소 Jane-0120/loop-webdorok-imac) — main에 push하면 자동 배포 (.github/workflows/deploy.yml)
+- 이 저장소는 아이맥 24인치(기본 해상도 2240×1260) · 브라우저 도구막대 없는 전체 화면 전용 복사본. 원본: libe396/loop-webdorok
 
 ## 디자인 기준 (Figma가 원본)
 - Figma 파일 `9wJzEafnp4YRzPSR6oswWX` (디자인씽킹스튜디오)
