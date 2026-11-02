@@ -4,6 +4,7 @@
   --content: 1792px;
   --mx: clamp(24px, 6vw, 120px);
   --my: clamp(56px, 7vw, 88px);
+  --gnb-logo-h: 28px;
   --gnb-top: 28px;   /* 아이맥 전체 화면: 화면 위 끝과 GNB 사이 여백 */
   --gnb-h: 104px;   /* 여백 28 + 메뉴 줄 76. calc 금지(Home.jsx가 parseFloat로 읽음) */
   --fs-56: 36px; --fs-48: 24px; --fs-12: 14px; --fs-36: 36px; --fs-24: 24px; --fs-20: 20px;
@@ -19,7 +20,7 @@ body { background: var(--editorial-paper); }
 .gnb { padding: 0; }
 .gnb-in { max-width: none; height: var(--gnb-h); gap: 24px; padding: 0 var(--mx); background: var(--editorial-paper); border-bottom: 1px solid var(--editorial-line); }
 .gnb.is-solid { background: var(--editorial-paper); box-shadow: none; backdrop-filter: none; }
-.gnb-logo svg { height: 24px; }
+.gnb-logo svg { width: auto; height: var(--gnb-logo-h); }
 .gnb-nav { gap: 24px; }
 .gnb-nav a { font-size: var(--fs-12); }
 .gnb-burger { background: transparent; border: 1px solid var(--editorial-line); }
